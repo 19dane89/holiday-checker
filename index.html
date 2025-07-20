@@ -6,155 +6,35 @@
   <style>
     body { font-family: Arial, sans-serif; background:#f2f2f2; color:#333; margin:0; padding:0; }
     header { background:#444; color:#fff; padding:1rem; text-align:center; margin-bottom: 20px; }
-    table { width:90%; margin:1rem auto; border-collapse: collapse; }
-    th, td { padding: 0.75rem; text-align:left; }
-    th { background:#f90; color:#fff; }
-    td { border-bottom:1px solid #ccc; }
-
-    /* Style for each country block */
     .country-block {
       background-color: #f9f9f9;
       padding: 20px;
       margin-bottom: 20px;
       border-radius: 8px;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* Bold country names */
     .country-name {
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: #444;
+      margin-bottom: 10px;
     }
 
-    /* Space between the header and the table */
-    thead { padding-bottom: 10px; }
+    table { width:100%; border-collapse: collapse; }
+    th, td { padding: 0.75rem; text-align:left; }
+    th { background:#f90; color:#fff; }
+    td { border-bottom:1px solid #ccc; }
 
     /* For extra readability */
     tr:hover { background-color: #e6e6e6; }
 
-  </style>
-</head>
-<body>
-  <header><h1>Stanchion Global Holiday Checker</h1></header>
+    /* Space between the header and the table */
+    thead { padding-bottom: 10px; }
 
-  <!-- South Africa Block -->
-  <div class="country-block">
-    <div class="country-name">South Africa</div>
-    <table>
-      <thead>
-        <tr>
-          <th>Holiday Date</th>
-          <th>Holiday Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>2025-01-01</td><td>New Year's Day</td></tr>
-        <tr><td>2025-03-21</td><td>Human Rights Day</td></tr>
-        <tr><td>2025-04-18</td><td>Good Friday</td></tr>
-        <tr><td>2025-04-21</td><td>Family Day</td></tr>
-        <tr><td>2025-04-27</td><td>Freedom Day</td></tr>
-        <tr><td>2025-04-28</td><td>Freedom Day (Observed)</td></tr>
-        <tr><td>2025-05-01</td><td>Labour Day</td></tr>
-        <tr><td>2025-06-16</td><td>Youth Day</td></tr>
-        <tr><td>2025-08-09</td><td>National Women's Day</td></tr>
-        <tr><td>2025-09-24</td><td>Heritage Day</td></tr>
-        <tr><td>2025-12-16</td><td>Day of Reconciliation</td></tr>
-        <tr><td>2025-12-25</td><td>Christmas Day</td></tr>
-        <tr><td>2025-12-26</td><td>Day of Goodwill</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Iraq Block -->
-  <div class="country-block">
-    <div class="country-name">Iraq</div>
-    <table>
-      <thead>
-        <tr>
-          <th>Holiday Date</th>
-          <th>Holiday Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>2025-01-01</td><td>New Year's Day</td></tr>
-        <tr><td>2025-01-06</td><td>Epiphany</td></tr>
-        <tr><td>2025-03-21</td><td>Nowruz (Persian New Year)</td></tr>
-        <tr><td>2025-03-30</td><td>Mother’s Day</td></tr>
-        <tr><td>2025-04-09</td><td>Fall of Baghdad</td></tr>
-        <tr><td>2025-06-27</td><td>Eid al-Fitr</td></tr>
-        <tr><td>2025-07-06</td><td>Eid al-Adha</td></tr>
-        <tr><td>2025-07-14</td><td>Islamic New Year</td></tr>
-        <tr><td>2025-09-04</td><td>Ashura</td></tr>
-        <tr><td>2025-10-03</td><td>Prophet Muhammad’s Birthday</td></tr>
-        <tr><td>2025-12-10</td><td>Human Rights Day</td></tr>
-        <tr><td>2025-12-25</td><td>Christmas Day</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- New Zealand Block -->
-  <div class="country-block">
-    <div class="country-name">New Zealand</div>
-    <table>
-      <thead>
-        <tr>
-          <th>Holiday Date</th>
-          <th>Holiday Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>2025-01-01</td><td>New Year's Day</td></tr>
-        <tr><td>2025-01-02</td><td>Day After New Year's Day</td></tr>
-        <tr><td>2025-02-06</td><td>Waitangi Day</td></tr>
-        <tr><td>2025-04-18</td><td>Good Friday</td></tr>
-        <tr><td>2025-04-21</td><td>Easter Monday</td></tr>
-        <tr><td>2025-04-25</td><td>ANZAC Day</td></tr>
-        <tr><td>2025-06-02</td><td>Queen's Birthday</td></tr>
-        <tr><td>2025-06-20</td><td>Matariki</td></tr>
-        <tr><td>2025-10-27</td><td>Labour Day</td></tr>
-        <tr><td>2025-12-25</td><td>Christmas Day</td></tr>
-        <tr><td>2025-12-26</td><td>Boxing Day</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Greece Block -->
-  <div class="country-block">
-    <div class="country-name">Greece</div>
-    <table>
-      <thead>
-        <tr>
-          <th>Holiday Date</th>
-          <th>Holiday Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>2025-01-01</td><td>New Year's Day</td></tr>
-        <tr><td>2025-01-06</td><td>Epiphany</td></tr>
-        <tr><td>2025-03-25</td><td>Independence Day</td></tr>
-        <tr><td>2025-04-18</td><td>Good Friday</td></tr>
-        <tr><td>2025-04-21</td><td>Holy Saturday</td></tr>
-        <tr><td>2025-04-27</td><td>Labour Day</td></tr>
-        <tr><td>2025-06-09</td><td>Whit Monday</td></tr>
-        <tr><td>2025-08-15</td><td>Assumption of Mary</td></tr>
-        <tr><td>2025-10-28</td><td>Ochi Day</td></tr>
-        <tr><td>2025-12-25</td><td>Christmas Day</td></tr>
-        <tr><td>2025-12-26</td><td>Boxing Day</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Namibia Block -->
-  <div class="country-block">
-    <div class="country-name">Namibia</div>
-    <table>
-      <thead>
-        <tr>
-          <th>Holiday Date</th>
-          <th>Holiday Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>2025-01-01</td><td>New Year's Day</td></tr>
-        <tr><td>2025-03-21</td><td>Independ
+    /* Proper alignment */
+    td, th { text-align: left;
