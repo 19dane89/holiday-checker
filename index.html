@@ -21,6 +21,16 @@
       margin-bottom: 20px;
     }
 
+    .controls {
+      text-align: center;
+      margin: 20px;
+    }
+
+    select, input {
+      padding: 0.5rem;
+      margin: 0 5px;
+    }
+
     table {
       width: 90%;
       margin: 1rem auto;
@@ -31,6 +41,7 @@
     th, td {
       padding: 0.75rem;
       text-align: left;
+      border-bottom: 1px solid #ccc;
     }
 
     th {
@@ -38,23 +49,27 @@
       color: #fff;
     }
 
-    td {
-      border-bottom: 1px solid #ccc;
-    }
-
     tr.today {
       background: #ffe4b3;
-    }
-
-    thead tr {
-      border-bottom: 2px solid #999;
     }
   </style>
 </head>
 <body>
   <header><h1>Stanchion Global Holiday Checker</h1></header>
 
-  <table>
+  <div class="controls">
+    <label for="year">Year:</label>
+    <select id="year">
+      <option value="2025">2025</option>
+      <option value="2026">2026</option>
+      <option value="2027">2027</option>
+    </select>
+
+    <label for="country">Country:</label>
+    <input type="text" id="country" placeholder="Enter country name">
+  </div>
+
+  <table id="holiday-table">
     <thead>
       <tr>
         <th>Country</th>
@@ -62,10 +77,61 @@
         <th>Holiday Name</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- [Holiday rows go here — unchanged from your version] -->
-      <!-- Your full holiday data here -->
+    <tbody id="holiday-body">
+      <!-- Populated by JavaScript -->
     </tbody>
   </table>
+
+  <script>
+    const holidayData = {
+      2025: [
+        { country: 'South Africa', date: '2025-01-01', name: "New Year's Day" },
+        { country: 'South Africa', date: '2025-03-21', name: 'Human Rights Day' },
+        { country: 'United Kingdom', date: '2025-04-18', name: 'Good Friday' },
+        { country: 'United Kingdom', date: '2025-12-25', name: 'Christmas Day' },
+        { country: 'United States', date: '2025-07-04', name: 'Independence Day' },
+        { country: 'United States', date: '2025-11-27', name: 'Thanksgiving' },
+        { country: 'India', date: '2025-08-15', name: 'Independence Day' },
+        { country: 'India', date: '2025-10-02', name: 'Gandhi Jayanti' },
+        { country: 'Australia', date: '2025-01-26', name: 'Australia Day' },
+        { country: 'Australia', date: '2025-12-25', name: 'Christmas Day' },
+        { country: 'Germany', date: '2025-10-03', name: 'German Unity Day' },
+        { country: 'Germany', date: '2025-12-25', name: 'Christmas Day' },
+        { country: 'Brazil', date: '2025-09-07', name: 'Independence Day' },
+        { country: 'Brazil', date: '2025-11-15', name: 'Republic Proclamation Day' }
+      ],
+      2026: [
+        { country: 'South Africa', date: '2026-01-01', name: "New Year's Day" },
+        { country: 'United States', date: '2026-07-04', name: 'Independence Day' },
+        { country: 'India', date: '2026-08-15', name: 'Independence Day' },
+        { country: 'Germany', date: '2026-10-03', name: 'German Unity Day' }
+      ]
+    };
+
+    const today = new Date().toISOString().split('T')[0];
+
+    function renderTable() {
+      const selectedYear = document.getElementById('year').value;
+      const countryFilter = document.getElementById('country').value.toLowerCase();
+      const tbody = document.getElementById('holiday-body');
+      tbody.innerHTML = '';
+
+      if (holidayData[selectedYear]) {
+        holidayData[selectedYear].forEach(entry => {
+          if (!countryFilter || entry.country.toLowerCase().includes(countryFilter)) {
+            const row = document.createElement('tr');
+            if (entry.date === today) row.classList.add('today');
+            row.innerHTML = `<td>${entry.country}</td><td>${entry.date}</td><td>${entry.name}</td>`;
+            tbody.appendChild(row);
+          }
+        });
+      }
+    }
+
+    document.getElementById('year').addEventListener('change', renderTable);
+    document.getElementById('country').addEventListener('input', renderTable);
+
+    renderTable();
+  </script>
 </body>
 </html>
